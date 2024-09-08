@@ -1,23 +1,27 @@
-#include<iostream>
-#include<vector>
-using namesapce std;
-int main(){
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
     vector<int> v(6);
-    for(int i=0;i,6;i++){
-        cin>>v[i];
 
+    for(int i = 0; i < 6; i++) {
+        cin >> v[i];
     }
-    cout<<"enter x:";
+
+    cout << "enter x: ";
     int x;
-    cin>>;
+    cin >> x;
 
-    int occurence =-1;
-    for(int i=0;i<v.size();i++){
-        if(v[i]==x){
-            occurence=i;break;
-
+    int occurrence = -1;
+    for(int i = 0; i < v.size(); i++) {
+        if(v[i] == x) {
+            occurrence = i; 
+            break;
         }
     }
-    cout<<occurence<<endl;
 
+    cout << occurrence << endl;
+
+    return 0;
 }

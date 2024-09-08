@@ -24,5 +24,8 @@ int main(){
     cout<<"Size: "<<v.size()<<endl;
     cout<<"Capacity: "<<v.capacity()<<endl;
 
+    v.pop_back();
+    v.erase(v.end()-1);
+
     return 0;
 }

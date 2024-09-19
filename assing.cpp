@@ -1,33 +1,45 @@
-#include<iostream>
-#include<vector>
-#include<algorithm>
+#include<bits/stdc++.h>
 using namespace std;
-int assignCookies(vector<int>& g, vector<int>& s){
-     // sort cookies and greed
-    sort(s.begin(),s.end());
-    sort(g.begin(),g.end());
-    // take two pointer
-// for children
-int i = 0;
-// for cookies
-int j = 0;
-// try to satisfy each child with each cookies
-while (i < g.size() && j < s.size()) {
-    // if one cookies can satisfy current child
-if (s[j] >= g[i]) {
-    i++;
-  }
-  // move to the next cookies
-    j++;
-  }
-  //number of satifed
-    cout<<i<<endl;
-}
-int main() {
-    // Test case 1
-    vector<int> g1 = {1, 2, 3}; // Greed factors of children
-    vector<int> s1 = {1, 1};    // Sizes of cookies
-    cout << "Number of content children (Test 1): " << assignCookies(g1, s1) << endl;
+int solved(vector<int> &g, vector<int> &s){
+  sort(g.rbegin(),g.rend());
+  sort(s.rbegin(),s.rend());
+  int i =0;
+  int j =0;
+int ans=0;
 
-    return 0;
+  while(i<g.size() && j<s.size()){
+    if(g[i]>s[j])
+      i++;
+    else{
+      ans++;
+      i++;j++;
+   }
+ 
+  }
+ return ans;
+}
+int main(){
+   int m ;
+  // greed 
+  cin>>m;
+  
+  int n;// chocklates
+  cin>>n;
+  
+  
+  vector<int> g(m);
+  vector<int> s(n);
+  
+  for(int i =0;i<m;i++){
+    cin>>g[i];
+
+  }
+  for(int j=0;j<n;j++){
+    cin>>s[j];
+
+  }
+  int ans= solved(g,s);
+  cout<<ans<<endl;
+
+  return 0;
 }

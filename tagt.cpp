@@ -1,19 +1,33 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 int main(){
-    int array[]={3,4,6,7,1};
-    int targetsum=7;
-    int size =5;
-    int pairs =0;
-    for(int i = 0 ;i<size;i++){
-        for(int j=i+1;j<size;j++){
-            if(array[i]==targetsum){
-                pairs++;
-            }
-        }
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
     }
-  
+    int target;
+    cin>>target;
+    int pairs =0;
+    sort(arr.begin(), arr.end());
+    int i = 0;
+    int j= n-1;
+    while(i<j){
+        if(arr[i]+arr[j]==target){
+            pairs++;
+            i++;j--;
+            
+        }
+        else if(arr[i]+arr[j]<target){
+            i++;
+        }
+        else
+        j--;
+        
+    }
     cout<<pairs<<endl;
-
-    return pairs;
-}
+    return 0;
+    
+} 
+    
